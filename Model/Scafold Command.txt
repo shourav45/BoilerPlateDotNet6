@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Data Source=IT-PC3\SQLEXPRESS;Initial Catalog=TestDB;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -Context CMContext -ContextDir Context  -OutputDir Models
