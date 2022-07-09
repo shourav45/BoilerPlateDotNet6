@@ -6,8 +6,6 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Service;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Reflection;
 using System.Text;
 
 

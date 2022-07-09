@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Model.Models;
 using Service;
-using Utility;
 
 namespace API.Controllers
 {
