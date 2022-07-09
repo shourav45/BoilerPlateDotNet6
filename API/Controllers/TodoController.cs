@@ -2,18 +2,48 @@
 using Microsoft.AspNetCore.Mvc;
 using Model.Models;
 using Service;
+using Utility;
 
 namespace API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TodoController : ControllerBase
     {
-        public readonly TodoService service;
-        public TodoController()
+        private readonly TodoService service;
+        private readonly IConfiguration _configuration;
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _environment;
+        public TodoController(IConfiguration config, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment)
         {
             this.service = new TodoService();
+            _configuration = config;
+            _environment = environment;
+        }
+
+        [HttpPost]
+        [Route("~/file/upload/by/form/data")]
+        public async Task<IActionResult> createNewTodoItemWithAttachment(IFormCollection formData, IFormFile AttachFile)
+        {
+            try
+            {
+                string UploadPath = _configuration["FileUploadPath:TodoAttachments"];
+
+                foreach (var file in formData.Files)
+                {
+                    var uploads = Path.Combine(UploadPath);
+                    if (file.Length > 0)
+                    {
+                        using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
+                        {
+                            _ = file.CopyToAsync(fileStream);
+                        }
+                    }
+                }
+
+                return getResponse("File Uploaded Successfully.");
+            }
+            catch (Exception ex) { return getResponse(ex); }
         }
 
         [HttpGet]

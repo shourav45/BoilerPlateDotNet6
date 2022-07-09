@@ -55,7 +55,7 @@ namespace API.Controllers
                         _configuration["Jwt:Issuer"],
                         _configuration["Jwt:Audience"],
                         claims,
-                        expires: DateTime.UtcNow.AddMinutes(1),
+                        expires: DateTime.UtcNow.AddMinutes(60),
                         signingCredentials: signIn);
 
                     TokenObject = new JWTTokenDTO
@@ -66,7 +66,7 @@ namespace API.Controllers
                         FullName = UserData.FullName,
                         CIF = UserData.Cif,
                         Token = new JwtSecurityTokenHandler().WriteToken(token),
-                        TokenExpire = DateTime.UtcNow.AddMinutes(1)
+                        TokenExpire = DateTime.UtcNow.AddMinutes(60)
                     };
                 };
 
