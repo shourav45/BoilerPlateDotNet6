@@ -6,7 +6,7 @@ using Utility;
 
 namespace API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TodoController : ControllerBase

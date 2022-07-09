@@ -70,4 +70,3 @@ C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\Microsoft.AspNetCo
 C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\AspNetCoreRateLimit.dll
 C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.dll
-C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\swagger-api.xml.txt

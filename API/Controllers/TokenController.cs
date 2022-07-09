@@ -65,8 +65,8 @@ namespace API.Controllers
                         Email = UserData.Email,
                         FullName = UserData.FullName,
                         CIF = UserData.Cif,
-                        Token = new JwtSecurityTokenHandler().WriteToken(token),
-                        TokenExpire = DateTime.UtcNow.AddMinutes(60)
+                        TokenExpire = DateTime.UtcNow.AddMinutes(60),
+                        Token = new JwtSecurityTokenHandler().WriteToken(token)
                     };
                 };
 
