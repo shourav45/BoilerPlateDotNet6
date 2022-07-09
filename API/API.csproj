@@ -4,6 +4,17 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	 <GenerateDocumentationFile>False</GenerateDocumentationFile>
+	  <NoWarn>$(NoWarn);1591'1701;1702</NoWarn>
+	  <DocumentationFile>C:\Users\IT_PC3\source\repos\APISolution\API\swagger-api.xml.txt</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>

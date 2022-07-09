@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Service;
+using System.Reflection;
 using System.Text;
 
 
@@ -14,11 +16,43 @@ using System.Text;
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+
 builder.Services.AddSwaggerGen(c =>
 {
+    //FOR IGNORING SAME API WITH DIFFERENT VERSION
     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 });
+
+// Register the Swagger generator, defining 1 or more Swagger documents
+
+//builder.Services.AddSwaggerGen(c =>
+//{
+//    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+//    c.SwaggerDoc("v1", new OpenApiInfo
+//    {
+//        Title = "CM API",
+//        Version = "v1",
+//        Description = "An API to perform CM Back Office APP",
+//        TermsOfService = new Uri("https://example.com/terms"),
+//        Contact = new OpenApiContact
+//        {
+//            Name = "Shourav Kumar",
+//            Email = "shourav@idlc.com",
+//            Url = new Uri("https://twitter.com/jwalkner"),
+//        },
+//        License = new OpenApiLicense
+//        {
+//            Name = "CM API LICX",
+//            Url = new Uri("https://example.com/license"),
+//        }
+//    });
+//    // Set the comments path for the Swagger JSON and UI.
+//    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+//    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+//    c.IncludeXmlComments(xmlPath);
+//});
+
+
 
 //SERVICES REGISTER
 builder.Services.AddScoped<UserService>();
@@ -50,6 +84,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                  }
              };
          });
+
 
 
 //API RATE LIMITING
@@ -100,8 +135,11 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    //SWAGGER DOC LINK
+    //https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-6.0&tabs=visual-studio
     app.UseSwagger();
     app.UseSwaggerUI();
+    
 }
 
 app.UseHttpsRedirection();
@@ -112,5 +150,6 @@ app.UseAuthorization();
 app.UseIpRateLimiting();
 
 app.MapControllers();
-
+//Enable Static File Middleware
+app.UseStaticFiles();
 app.Run();
