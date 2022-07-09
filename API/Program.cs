@@ -1,3 +1,4 @@
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Service;
@@ -44,6 +45,34 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
              };
          });
 
+
+//API RATE LIMITING
+builder.Services.AddMemoryCache();
+builder.Services.Configure<IpRateLimitOptions>(options =>
+{
+    options.EnableEndpointRateLimiting = true;
+    options.StackBlockedRequests = false;
+    options.HttpStatusCode = 429;
+    options.RealIpHeader = "X-Real-IP";
+    options.ClientIdHeader = "X-ClientId";
+    options.GeneralRules = new List<RateLimitRule>
+        {
+            new RateLimitRule
+            {
+                Endpoint = "GET:/get/to/do/item/list",
+                Period = "10s",
+                Limit = 2,
+            }
+        };
+});
+builder.Services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+builder.Services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+builder.Services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
+builder.Services.AddInMemoryRateLimiting();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -57,6 +86,8 @@ app.UseHttpsRedirection();
 //TOKEN AUTHENTICATION
 app.UseAuthentication();
 app.UseAuthorization();
+//API RATE LIMIT
+app.UseIpRateLimiting();
 
 app.MapControllers();
 

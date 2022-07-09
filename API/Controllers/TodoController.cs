@@ -47,7 +47,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Route("~/get/to/do/item/list")]
+        [Route("~/get/to/do/item/list")] //API CALL RATING CONFIGURED IN PROGRAM.CS
         public async Task<IActionResult> getTodoItemList()
         {
             try

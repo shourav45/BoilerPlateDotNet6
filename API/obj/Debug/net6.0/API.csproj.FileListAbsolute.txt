@@ -67,3 +67,5 @@ C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\Service.pdb
 C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\Utility.pdb
 C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\DataAcess.pdb
 C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\AspNetCoreRateLimit.dll
+C:\Users\IT_PC3\source\repos\APISolution\API\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
