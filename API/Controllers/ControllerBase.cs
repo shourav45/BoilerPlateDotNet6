@@ -42,18 +42,11 @@ namespace API.Controllers
             {
                 string Message = "";
 
-                // Source
-                //if (!string.IsNullOrEmpty(ex.Source)) Message = "Source -> " + ex.Source + "\r\n";
-
-                // Message
-                //if (!string.IsNullOrEmpty(ex.Message)) Message += ex.Message + "\r\n";
-
                 if (ex.InnerException != null)
                 {
                     var iEx = ex.InnerException;
                     if (!string.IsNullOrEmpty(iEx.Message))
                     {
-                        //if (!string.IsNullOrEmpty(iEx.Source)) Message += "Source -> " + iEx.Source + "\r\n";
                         Message += iEx.Message;
                     }
                 }

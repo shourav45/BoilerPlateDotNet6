@@ -46,7 +46,8 @@ namespace API.Controllers
                         new Claim("MobileNo", UserData.MobileNo),
                         new Claim("Email", UserData.Email),
                         new Claim("FullName", UserData.FullName),
-                        new Claim("CIF", UserData.Cif)
+                        new Claim("CIF", UserData.Cif),
+                        new Claim("UP", UserData.UserPassword)
                     };
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
@@ -91,8 +92,11 @@ namespace API.Controllers
                 var jsonToken = handler.ReadToken(ExpiredToken);
                 var tokenS = jsonToken as JwtSecurityToken;
                 var UserName = tokenS.Claims.First(claim => claim.Type == "UserName").Value;
+                var UserPassword = tokenS.Claims.First(claim => claim.Type == "UP").Value;
                 //NOW CREATE NEW TOKEN- USERNAME FOUND FROM EXPIRED TOKEN
                 var UserData = service.getUserAccount(UserName).Result;
+                //RE CHECKING USER PASSWORD FROM EXPIRED TOKEN AND DATABASE
+                if (UserData.UserPassword != UserPassword) return BadRequest("Please Login");
                 //create claims details based on the user information
                 var claims = new[] {
                         new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
@@ -102,7 +106,8 @@ namespace API.Controllers
                         new Claim("MobileNo", UserData.MobileNo),
                         new Claim("Email", UserData.Email),
                         new Claim("FullName", UserData.FullName),
-                        new Claim("CIF", UserData.Cif)
+                        new Claim("CIF", UserData.Cif),
+                        new Claim("UP", UserData.UserPassword)
                     };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
