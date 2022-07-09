@@ -1,5 +1,7 @@
 using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.IdentityModel.Tokens;
 using Service;
 using System.Text;
@@ -12,7 +14,11 @@ using System.Text;
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+});
 
 //SERVICES REGISTER
 builder.Services.AddScoped<UserService>();
@@ -71,6 +77,22 @@ builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>()
 builder.Services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
 builder.Services.AddInMemoryRateLimiting();
 
+
+// ADDING API VERSIONING
+builder.Services.AddApiVersioning(options =>
+{
+    //DEFAULT TAKING VERSION 1.O-- IF CONTROLLER IS NOT MAPPED THEN NO NEED TO MENSION VERSION IN THE REQUEST
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+    options.ApiVersionReader =
+    ApiVersionReader.Combine(
+        //REQUEST HEADER KEY WITH VERSION
+       new HeaderApiVersionReader("X-Api-Version"),
+       //OR PUT API-VERSION AFTER REQUEST URL WITH ? CHARACTER
+       new QueryStringApiVersionReader("api-version"));
+    //IF A VERSION IS MAPPED THEN WITHOUT MENSION VERSION RETURN UNSUPPORTEDAPI VERSION ERROR
+});
 
 
 var app = builder.Build();
