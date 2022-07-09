@@ -1,8 +1,6 @@
-using API.Controllers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Service;
-using System.Configuration;
 using System.Text;
 
 
@@ -19,21 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TodoService>();
 
-//JWT TOKEN
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-//{
-//    options.RequireHttpsMetadata = false;
-//    options.SaveToken = true;
-//    options.TokenValidationParameters = new TokenValidationParameters()
-//    {
-//        ValidateIssuer = true,
-//        ValidateAudience = true,
-//        ValidAudience = builder.Configuration["Jwt:Audience"],
-//        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-//    };
-//});
-
+//JWT TOKEN AUTHENTICATION
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
          .AddJwtBearer(options =>
          {
@@ -44,9 +28,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                  ValidateIssuerSigningKey = true,
                  ValidAudience = builder.Configuration["Jwt:Audience"],
                  ValidIssuer = builder.Configuration["Jwt:Issuer"],
-                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
-                 ValidateLifetime = true,
-                 ClockSkew = TimeSpan.Zero
+                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
              };
 
              options.Events = new JwtBearerEvents
