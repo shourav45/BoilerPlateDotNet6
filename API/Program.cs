@@ -2,7 +2,6 @@ using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Service;
@@ -44,8 +43,6 @@ builder.Services.AddSwaggerGen(options =>
             }
         });
 });
-
-// Register the Swagger generator, defining 1 or more Swagger documents
 
 
 
