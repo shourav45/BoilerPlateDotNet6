@@ -51,7 +51,9 @@ namespace API.Controllers
         {
             try
             {
-               string LoggedinUserName = User.FindFirst("UserName")?.Value;
+                //ANY WHERE IN API CAN GET THE USER INFORMATIONS FROM USER OBJECT
+
+               //string LoggedinUserName = User.FindFirst("UserName")?.Value;
 
                 return getResponse(await service.getTodoMasterList());
             }
