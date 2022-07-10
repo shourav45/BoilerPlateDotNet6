@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Online Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            font-family: arial;
+        }
+
+        body {
+            background: #eee;
+        }
+
+        .wrapper {
+            position: relative;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 250px;
+            height: 700px;
+            background: lightgrey;
+            padding: 10px 0;
+            border-radius: 20px;
+        }
+
+        .wrapper .sidebar ul li {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+            .wrapper .sidebar ul li a {
+                display: block;
+                color: black;
+                font-size:larger;
+            }
+
+                .wrapper .sidebar ul li a .fas {
+                    width: 25px !important;
+                }
+
+                .wrapper .sidebar ul li a .far {
+                    width: 25px !important;
+                }
+
+            .wrapper .sidebar ul li:hover {
+                background: darkgray;
+                color: #fff;
+            }
+
+           
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+   
+        <div class="wrapper d-flex">
+            <div class="sidebar">
+                <ul>
+                    <li>
+                        <a href="#Dashboard" class="tablink w3-grey" onclick="openPanel(event, 'Dashboard')">
+                            <i class="fas fa-home"></i>Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#Architecture" class="tablink" onclick="openPanel(event, 'Architecture')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i> Architecture
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#SolutionStructure" class="tablink" onclick="openPanel(event, 'SolutionStructure')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i> Solution Structure
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#APIResponse" class="tablink" onclick="openPanel(event, 'APIResponse')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i>API - Response
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#EntityFramework" class="tablink" onclick="openPanel(event, 'EntityFramework')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i>ORM - EntityFramework
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#ContextandModel" class="tablink" onclick="openPanel(event, 'ContextandModel')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i>Context, Model & DTO
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#ErrorHandling" class="tablink" onclick="openPanel(event, 'ErrorHandling')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i>Error Handling & Logging
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#JWTToken" class="tablink" onclick="openPanel(event, 'JWTToken')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i> JWT Token
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#APIRateLimiting" class="tablink" onclick="openPanel(event, 'APIRateLimiting')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i>  API Rate Limiting
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#APIVersioning" class="tablink" onclick="openPanel(event, 'APIVersioning')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i> API Versioning
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#DataValidation" class="tablink" onclick="openPanel(event, 'DataValidation')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i> Data Validation
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#DataEncryption" class="tablink" onclick="openPanel(event, 'DataEncryption')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i> Data Encryption
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#JSONSerialize" class="tablink" onclick="openPanel(event, 'JSONSerialize')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i> JSON Serialize
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#AttachmentUpload" class="tablink" onclick="openPanel(event, 'AttachmentUpload')">
+                            <i class="fa fa-chevron-right" style="margin-right:5px"></i> Attachment Upload
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div style="margin-left:250px">
+                <div class="w3-padding"></div>
+
+                <!--Dashboard panel-->
+                <div id="Dashboard" class="w3-container divtab" style="display:block">
+                    <div class="container" style="padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: 30px;">
+                        <h2>ASP.NET 6 WEB API</h2>
+                        <p>A Boilerplate for simple structure and all nessary library included.</p>
+                    </div>
+
+                </div>
+
+                <!--Architecture panel-->
+                <div id="Architecture" class="w3-container divtab" style="display:none">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img height="400" src="three-layered-architecture.jpg" />
+                        </div>
+                        <div class="col-md-6">
+
+                            <h4>
+                                A three-layer architecture is a client-server architecture in which the functional
+                                processes of user interface, business logic and data access layer
+                                are developed and maintained as independent modules on separate platforms.
+                                The three-layer architecture is a software design pattern
+                                and well-established software architecture.
+                            </h4>
+
+                            <strong>Advantages of 3-layer Architecture</strong>
+                            <ol>
+                                <li>
+                                    Reusability: Moving code-behind libraries. It is possible to make changes in the presentation level without effecting the other two (business or data access layer).<br><br>
+                                </li>
+                                <li>
+                                    Decoupling of UI, Business logic and Data Access Layer are done.<br><br>
+                                </li>
+                                <li>
+                                    Maintainability: When we change one layer due to the client's needs it doesn't affect the other layers and we need to do less changes in another layer.<br><br>
+                                </li>
+                                <li>
+                                    If your project moves from Windows to a website then only the UI is changed
+                                    and all the other layers remain the same and the same goes when depending on your
+                                    business needs the database changes. Only the DAL is changed, the rest are decoupled
+                                    from each other making the project easier to manage.
+                            </ol>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <!--SolutionStructure panel-->
+                <div id="SolutionStructure" class="w3-container divtab" style="display:none">
+                    <h2>Solution Structure</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img height="500" src="Layered-Architecture.svg" />
+                        </div>
+                        <div class="col-md-6">
+
+                            <img height="400" src="SolutionArchitecture1.jpg" />
+                        </div>
+                    </div>
+                </div>
+
+                <!--API Response panel-->
+                <div id="APIResponse" class="w3-container divtab" style="display:none">
+                    <h2>API Response</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--EntityFramework panel-->
+                <div id="EntityFramework" class="w3-container divtab" style="display:none">
+                    <h2>Entity Framework Core</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Context, Model and DTO panel-->
+                <div id="ContextandModel" class="w3-container divtab" style="display:none">
+                    <h2>Context, Model & DTO</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Error Handling and logging panel-->
+                <div id="ErrorHandling" class="w3-container divtab" style="display:none">
+                    <h2>Error Handling & Logging</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!--JWT token authentication panel-->
+                <div id="JWTToken" class="w3-container divtab" style="display:none">
+                    <h2>JWT Token</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!--API rate limiting panel-->
+                <div id="APIRateLimiting" class="w3-container divtab" style="display:none">
+                    <h2>API Rate Limiting</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!--API Versioning panel-->
+                <div id="APIVersioning" class="w3-container divtab" style="display:none">
+                    <h2>API Versioning</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Data Validation panel-->
+                <div id="DataValidation" class="w3-container divtab" style="display:none">
+                    <h2>Data Validation</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Data Encryption panel-->
+                <div id="DataEncryption" class="w3-container divtab" style="display:none">
+                    <h2>Data Encryption</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!--JSON Serialize panel-->
+                <div id="JSONSerialize" class="w3-container divtab" style="display:none">
+                    <h2>JSON Serialize</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Attachment Upload panel-->
+                <div id="AttachmentUpload" class="w3-container divtab" style="display:none">
+                    <h2>Attachment Upload</h2>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    
+
+    <script>
+
+        function openPanel(evt, cityName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("divtab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-grey", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " w3-grey";
+        }
+    </script>
+
+
+</body>
+
+</html>

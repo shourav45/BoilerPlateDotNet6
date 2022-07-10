@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAcess.Repository
 {
-    public class GenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly DbContext context;
         private readonly DbSet<T> table;
@@ -74,10 +74,5 @@ namespace DataAcess.Repository
             return await table.ToListAsync();
         }
 
-        public async Task<Boolean> CommitAll()
-        {
-            await context.SaveChangesAsync();
-            return true;
-        }
     }
 }

@@ -82,7 +82,6 @@ namespace API.Controllers
             }
             catch (Exception ex) { return getResponse(ex); }
         }
-
         
         [HttpGet]
         [Route("~/get/to/do/item/list/by/status/{status}")]
