@@ -16,6 +16,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+//SWAGGER DOC LINK
+//https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-6.0&tabs=visual-studio
+//https://github.com/domaindrivendev/Swashbuckle.AspNetCore
 //REGULAR SWAGGER
 builder.Services.AddSwaggerGen(options =>
 {
@@ -43,7 +46,6 @@ builder.Services.AddSwaggerGen(options =>
             }
         });
 });
-
 
 
 //SERVICES REGISTER
@@ -127,8 +129,6 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    //SWAGGER DOC LINK
-    //https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-6.0&tabs=visual-studio
     app.UseSwagger();
     app.UseSwaggerUI();
     
