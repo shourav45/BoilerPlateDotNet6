@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 using Model.DTO;
 using Model.Models;
 using Service;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
+
 using System.Text;
 
 namespace API.Controllers
@@ -74,7 +75,6 @@ namespace API.Controllers
             }
             catch (Exception ex) { return getResponse(ex); }
         }
-
 
         [AllowAnonymous]
         [HttpGet]
