@@ -18,7 +18,6 @@ namespace API.Controllers
             return Ok(result);
         }
 
-
         protected ActionResult getResponse(Exception ex)
         {
             CommonResponseDto response = new CommonResponseDto();
