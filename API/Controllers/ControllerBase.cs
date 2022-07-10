@@ -14,7 +14,7 @@ namespace API.Controllers
             response.Data = Data;
 
             var result = new JSONSerialize().getJSONString(response, true);
-
+            //SAVE DATA/API CALL LOG IF NESSAGERY
             return Ok(result);
         }
 
