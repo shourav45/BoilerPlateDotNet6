@@ -1,4 +1,6 @@
-﻿using DataAcess.Repository;
+﻿using AutoMapper;
+using DataAcess.Repository;
+using DTO;
 using Model.Models;
 using System.Security.Authentication;
 using Utility;
@@ -7,7 +9,7 @@ namespace Service
 {
     public class UserService
     {
-        public async Task<string> userLoginValidation(UserAccount user)
+        public async Task<string> userLoginValidation(UserAccountDTO user)
         {
             var userData = await new GenericRepository<UserAccount>().FindOne(u => u.UserName == user.UserName);
 
@@ -23,23 +25,28 @@ namespace Service
             if (userData == null) throw new Exception("User Not Found.");
             else return userData;
         }
-        public async Task<UserAccount> createUserAccount(UserAccount user)
+        public async Task<UserAccount> createUserAccount(UserAccountDTO user)
         {
-            string ValidationMessage = Validation.UserValidation(user);
+            UserAccount userAccount = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<UserAccountDTO, UserAccount>())).Map<UserAccountDTO, UserAccount>(user);
+
+
+            string ValidationMessage = Validation.UserValidation(userAccount);
             if (ValidationMessage == "")
             {
-                user.UserPassword = new Crypto().Encrypt(user.UserPassword);
-                return await new GenericRepository<UserAccount>().Insert(user);
+                user.UserPassword = new Crypto().Encrypt(userAccount.UserPassword);
+                return await new GenericRepository<UserAccount>().Insert(userAccount);
             }
             else throw new Exception(ValidationMessage);
         }
-        public async Task<UserAccount> resetUserPassword(UserAccount user)
+        public async Task<UserAccount> resetUserPassword(UserAccountDTO user)
         {
             var userData = await new GenericRepository<UserAccount>().FindOne(u => u.UserName == user.UserName);
 
             if (userData == null) throw new Exception("User Not FOund.");
 
-            string ValidationMessage = Validation.UserValidation(user);
+            UserAccount userAccount = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<UserAccountDTO, UserAccount>())).Map<UserAccountDTO, UserAccount>(user);
+
+            string ValidationMessage = Validation.UserValidation(userAccount);
 
             if (ValidationMessage == "")
             {

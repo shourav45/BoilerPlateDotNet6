@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Model.Models;
+﻿using DTO;
+using Microsoft.AspNetCore.Mvc;
 using Service;
 
 namespace API.Controllers
@@ -17,7 +17,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("~/create/new/user/account")]
-        public async Task<IActionResult> createNewUserAccount(UserAccount user)
+        public async Task<IActionResult> createNewUserAccount(UserAccountDTO user)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("~/reset/user/password")]
-        public async Task<IActionResult> resetUserPassword(UserAccount user)
+        public async Task<IActionResult> resetUserPassword(UserAccountDTO user)
         {
             try
             {

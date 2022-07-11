@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Model.Models;
 using Service;
 
 namespace API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TodoController : ControllerBase
@@ -62,7 +62,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Route("~/create/new/to/do/item")]
-        public async Task<IActionResult> createNewTodoItem(TodoMaster master)
+        public async Task<IActionResult> createNewTodoItem(TodoMasterDTO master)
         {
             try
             {

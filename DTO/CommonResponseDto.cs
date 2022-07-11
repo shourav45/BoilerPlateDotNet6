@@ -1,5 +1,5 @@
 ﻿
-namespace Model.DTO
+namespace DTO
 {
     public class CommonResponseDto
     {

@@ -17,3 +17,5 @@ C:\Users\IT_PC3\source\repos\APISolution\Service\bin\Debug\net6.0\Model.pdb
 C:\Users\IT_PC3\source\repos\APISolution\Service\obj\Debug\net6.0\Service.csproj.CopyComplete
 C:\Users\IT_PC3\source\repos\APISolution\Service\bin\Debug\net6.0\Utility.dll
 C:\Users\IT_PC3\source\repos\APISolution\Service\bin\Debug\net6.0\Utility.pdb
+C:\Users\IT_PC3\source\repos\APISolution\Service\bin\Debug\net6.0\DTO.dll
+C:\Users\IT_PC3\source\repos\APISolution\Service\bin\Debug\net6.0\DTO.pdb

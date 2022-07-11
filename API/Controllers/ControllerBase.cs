@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Model.DTO;
+﻿using DTO;
+using Microsoft.AspNetCore.Mvc;
 using Utility;
 
 namespace API.Controllers

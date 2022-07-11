@@ -3,11 +3,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
-using Model.DTO;
-using Model.Models;
 using Service;
-
 using System.Text;
+using DTO;
 
 namespace API.Controllers
 {
@@ -24,7 +22,7 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("~/user/login")]
-        public async Task<IActionResult> userLogin(UserAccount user)
+        public async Task<IActionResult> userLogin(UserAccountDTO user)
         {
             try
             {

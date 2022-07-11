@@ -1,15 +1,23 @@
-﻿using DataAcess.Repository;
+﻿using AutoMapper;
+using DataAcess.Repository;
+using DTO;
 using Microsoft.Data.SqlClient;
 using Model.Models;
 namespace Service
 {
     public class TodoService
     {
-       
-
-        public async Task<TodoMaster> createTodoMaster(TodoMaster todoMaster)
+        //private Mapper _TotoMasterMapper;
+        public TodoService()
         {
-            return await new GenericRepository<TodoMaster>().Insert(todoMaster);
+           // var _MapConfig = new MapperConfiguration(cfg => cfg.CreateMap<TodoMasterDTO, TodoMaster>().ReverseMap());
+           // _TotoMasterMapper = new Mapper(_MapConfig);
+        }
+        public async Task<TodoMaster> createTodoMaster(TodoMasterDTO todoMaster)
+        {
+            TodoMaster master = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<TodoMasterDTO, TodoMaster>())).Map<TodoMasterDTO, TodoMaster>(todoMaster);
+            
+            return await new GenericRepository<TodoMaster>().Insert(master);
         }
         public async Task<TodoMaster> getTodoMasterByID(int todoID)
         {

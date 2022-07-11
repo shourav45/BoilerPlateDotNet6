@@ -20,6 +20,18 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "AutoMapper/11.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.6": {
         "type": "package",
         "dependencies": {
@@ -47,7 +59,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.0/_._": {}
@@ -737,6 +749,16 @@
           "bin/placeholder/DataAcess.dll": {}
         }
       },
+      "DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.dll": {}
+        }
+      },
       "Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -755,6 +777,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper": "11.0.1",
+          "DTO": "1.0.0",
           "DataAcess": "1.0.0",
           "Model": "1.0.0",
           "Utility": "1.0.0"
@@ -798,6 +822,21 @@
         "lib/netstandard2.0/AspNetCoreRateLimit.dll"
       ]
     },
+    "AutoMapper/11.0.1": {
+      "sha512": "WIadGC1pIwbnyTubvI577p3F++Bsj9q2Q3OaAc1I0QS+JhupN1xkdrPBhI9bPIeg63zM81tZplUNYkqU1HE5jQ==",
+      "type": "package",
+      "path": "automapper/11.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.11.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.6": {
       "sha512": "lrfPEeisa0xCmZKKQIKxuks37aGE6jgGqDq1ikZDwNLWfIt2/ajOQpHMSE6a5uLjEVqkChKpXpvA7ZvfIKvdzA==",
       "type": "package",
@@ -832,10 +871,10 @@
         "microsoft.aspnetcore.mvc.versioning.nuspec"
       ]
     },
-    "Microsoft.CSharp/4.5.0": {
-      "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
-      "path": "microsoft.csharp/4.5.0",
+      "path": "microsoft.csharp/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -848,6 +887,7 @@
         "lib/netcoreapp2.0/_._",
         "lib/netstandard1.3/Microsoft.CSharp.dll",
         "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
         "lib/portable-net45+win8+wp8+wpa81/_._",
         "lib/uap10.0.16299/_._",
         "lib/win8/_._",
@@ -857,7 +897,7 @@
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
-        "microsoft.csharp.4.5.0.nupkg.sha512",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
         "microsoft.csharp.nuspec",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
@@ -2163,6 +2203,11 @@
       "path": "../DataAcess/DataAcess.csproj",
       "msbuildProject": "../DataAcess/DataAcess.csproj"
     },
+    "DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/DTO.csproj",
+      "msbuildProject": "../DTO/DTO.csproj"
+    },
     "Model/1.0.0": {
       "type": "project",
       "path": "../Model/Model.csproj",
@@ -2182,9 +2227,9 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AspNetCoreRateLimit >= 4.0.2",
+      "DTO >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.6",
       "Microsoft.AspNetCore.Mvc.Versioning >= 5.0.0",
-      "Model >= 1.0.0",
       "Service >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.3.1",
       "Utility >= 1.0.0"
@@ -2221,8 +2266,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\IT_PC3\\source\\repos\\APISolution\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\IT_PC3\\source\\repos\\APISolution\\Model\\Model.csproj"
+            "C:\\Users\\IT_PC3\\source\\repos\\APISolution\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\IT_PC3\\source\\repos\\APISolution\\DTO\\DTO.csproj"
             },
             "C:\\Users\\IT_PC3\\source\\repos\\APISolution\\Service\\Service.csproj": {
               "projectPath": "C:\\Users\\IT_PC3\\source\\repos\\APISolution\\Service\\Service.csproj"

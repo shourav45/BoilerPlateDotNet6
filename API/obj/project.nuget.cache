@@ -1,13 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "3A4DSaQOvd45QpngoCx5ipiUzyQJJkkJq9q8OS5iSmEhX1N0FWc7YvIx3uxgoZtXGs/yrnRaxz6VNj+XfYQx6w==",
+  "dgSpecHash": "+f57WPVAu9W8tYJrUi/kVewewKvdWA75HHsd7h/XJ5lAMc6NHtuAqB4+cmmUTGpYeDA6WWB+WJktokA+POEVWw==",
   "success": true,
   "projectFilePath": "C:\\Users\\IT_PC3\\source\\repos\\APISolution\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IT_PC3\\.nuget\\packages\\aspnetcoreratelimit\\4.0.2\\aspnetcoreratelimit.4.0.2.nupkg.sha512",
+    "C:\\Users\\IT_PC3\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\IT_PC3\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.6\\microsoft.aspnetcore.authentication.jwtbearer.6.0.6.nupkg.sha512",
     "C:\\Users\\IT_PC3\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\IT_PC3\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\IT_PC3\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\IT_PC3\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\IT_PC3\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.6\\microsoft.entityframeworkcore.6.0.6.nupkg.sha512",
